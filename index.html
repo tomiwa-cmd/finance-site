@@ -1,0 +1,350 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Dashboard
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f1f3f4;
+            padding: 20px;
+            height: 100vh;
+        }
+        .sidebar .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sidebar .menu-item i {
+            margin-right: 10px;
+        }
+        .sidebar .menu-item:hover {
+            background-color: #e2e6ea;
+            border-radius: 5px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header .breadcrumb {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .header .breadcrumb span {
+            margin-right: 5px;
+        }
+        .header .search-signin {
+            display: flex;
+            align-items: center;
+        }
+        .header .search-signin .search-container {
+            position: relative;
+            margin-right: 10px;
+        }
+        .header .search-signin .search-container input {
+            padding: 5px 10px 5px 30px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .header .search-signin .search-container i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        .header .search-signin a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .header .search-signin i {
+            color: #333;
+        }
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 23%;
+            text-align: center;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .card p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .card .value {
+            font-size: 32px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .card .percentage {
+            font-size: 14px;
+            color: #28a745;
+        }
+        .card .percentage.negative {
+            color: #dc3545;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+        }
+        .main-content .left, .main-content .right {
+            width: 48%;
+        }
+        .main-content .left .chakra-card, .main-content .right .work-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .main-content .left .chakra-card img, .main-content .right .work-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .main-content .left .chakra-card h3, .main-content .right .work-card h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .main-content .left .chakra-card p, .main-content .right .work-card p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .main-content .left .chakra-card a, .main-content .right .work-card a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .main-content .left .chakra-card a:hover, .main-content .right .work-card a:hover {
+            text-decoration: underline;
+        }
+        .main-content .left .chart-card, .main-content .right .sales-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .main-content .left .chart-card img, .main-content .right .sales-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .main-content .right .sales-card h3 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .main-content .right .sales-card p {
+            margin: 10px 0 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="sidebar">
+    <div class="menu-item">
+     <i class="fas fa-home">
+     </i>
+     <span>
+      Dashboard
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-table">
+     </i>
+     <span>
+      Tables
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-file-invoice-dollar">
+     </i>
+     <span>
+      Billing
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-language">
+     </i>
+     <span>
+      RTL
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-user">
+     </i>
+     <span>
+      Profile
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-sign-in-alt">
+     </i>
+     <span>
+      Sign In
+     </span>
+    </div>
+    <div class="menu-item">
+     <i class="fas fa-user-plus">
+     </i>
+     <span>
+      Sign Up
+     </span>
+    </div>
+   </div>
+   <div class="content">
+    <div class="header">
+     <div class="breadcrumb">
+      <span>
+       Pages
+      </span>
+      /
+      <span>
+       Dashboard
+      </span>
+     </div>
+     <div class="search-signin">
+      <div class="search-container">
+       <i class="fas fa-search">
+       </i>
+       <input placeholder="Type here..." type="text"/>
+      </div>
+      <a href="#">
+       Sign In
+      </a>
+      <i class="fas fa-cog">
+      </i>
+     </div>
+    </div>
+    <div class="cards">
+     <div class="card">
+      <h3>
+       Today's Moneys
+      </h3>
+      <div class="value">
+       $53,000
+      </div>
+      <div class="percentage">
+       +55%
+      </div>
+     </div>
+     <div class="card">
+      <h3>
+       Today's Users
+      </h3>
+      <div class="value">
+       2,300
+      </div>
+      <div class="percentage">
+       +5%
+      </div>
+     </div>
+     <div class="card">
+      <h3>
+       New Clients
+      </h3>
+      <div class="value">
+       +3,020
+      </div>
+      <div class="percentage negative">
+       -14%
+      </div>
+     </div>
+     <div class="card">
+      <h3>
+       Total Sales
+      </h3>
+      <div class="value">
+       $173,000
+      </div>
+      <div class="percentage">
+       +8%
+      </div>
+     </div>
+    </div>
+    <div class="main-content">
+     <div class="left">
+      <div class="chakra-card">
+       <h3>
+        Built by Developers
+       </h3>
+       <p>
+        Purity UI Dashboard
+       </p>
+       <p>
+        From colors, cards, typography to complex elements, you will find the full documentation.
+       </p>
+       <a href="#">
+        Read more →
+       </a>
+       <img alt="Chakra UI logo" height="200" src="https://placehold.co/300x200" width="300"/>
+      </div>
+      <div class="chart-card">
+       <img alt="Chart showing data" height="200" src="https://placehold.co/300x200" width="300"/>
+      </div>
+     </div>
+     <div class="right">
+      <div class="work-card">
+       <h3>
+        Work with the rockets
+       </h3>
+       <p>
+        Wealth creation is a revolutionary recent positive-sum game. It is all about who takes the opportunity first.
+       </p>
+       <a href="#">
+        Read more →
+       </a>
+       <img alt="People working with laptops" height="200" src="https://placehold.co/300x200" width="300"/>
+      </div>
+      <div class="sales-card">
+       <h3>
+        Sales Overview
+       </h3>
+       <p>
+        5% more in 2021
+       </p>
+       <img alt="Sales data chart" height="200" src="https://placehold.co/300x200" width="300"/>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
